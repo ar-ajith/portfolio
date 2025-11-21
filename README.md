@@ -1,44 +1,36 @@
+<h1 align="center" style="font-size: 42px; font-weight: 800;">
+🔥 Personal Portfolio Website 🔥
+</h1>
 
-🌐 Personal Portfolio Website
+<p align="center" style="font-size: 18px; font-weight: 600;">
+A modern, responsive, and animated portfolio to showcase my skills and projects.
+</p>
 
-A fully responsive and visually modern personal portfolio website built using HTML, CSS, and JavaScript (React-friendly).
-This portfolio showcases my skills, projects, experience, and contact information with a neon-glow futuristic UI and smooth animations.
+<hr/>
 
-🚀 Features
-✨ Modern UI Design
+<h2 style="font-size: 32px; font-weight: 800;">🚀 Features</h2>
 
-Neon cyber-theme with glowing effects
+<ul style="font-size: 18px;">
+  <li><strong>✨ Modern Neon UI</strong> with glowing elements</li>
+  <li><strong>🎯 Fully Responsive</strong> for mobile, tablet, and desktop</li>
+  <li><strong>🖱️ Custom Animated Cursor</strong></li>
+  <li><strong>⚡ Smooth Animations</strong> & transitions</li>
+  <li><strong>💼 Clean Project Cards</strong> with hover effects</li>
+  <li><strong>🌙 Glassmorphism Sections</strong></li>
+</ul>
 
-Smooth animations and transitions
+<hr/>
 
-Custom animated cursor
+<h2 style="font-size: 32px; font-weight: 800;">🛠️ Technologies Used</h2>
 
-Attractive hero banner with profile image
+<ul style="font-size: 18px;">
+  <li><strong>HTML5</strong></li>
+  <li><strong>CSS3</strong> (Animations, Neon Glow, Responsive Design)</li>
+  <li><strong>JavaScript</strong></li>
+  <li><strong>Google Fonts</strong></li>
+  <li><strong>Font Awesome</strong> / Remix Icons</li>
+</ul>
 
-📱 Fully Responsive
+<hr/>
 
-Works seamlessly on desktop, tablet, and mobile screens
 
-Adaptive layout for project cards, navbar, sections, and buttons
-
-🧩 Clean Components
-
-Hero section
-
-About section
-
-Skills section
-
-Projects section
-
-Footer with social links
-
-🎨 Interactive Elements
-
-Hover animations
-
-Project card animations
-
-Smooth page load animation
-
-Background canvas effect
