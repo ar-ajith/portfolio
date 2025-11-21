@@ -69,12 +69,12 @@ function Home() {
       <section className="projects" id="projects">
         <h2>Projects</h2>
         <div className="project-card">
-          <img src={project1} alt="Project 1" />
+          <img src={project2} alt="Project 2" />
           <h3>GetAnyCars</h3>
           <p>Vehicle management platform using Django & React with real-time chat and subscriptions.</p>
         </div>
         <div className="project-card">
-          <img src={project2} alt="Project 2" />
+          <img src={project1} alt="Project 1" />
           <h3>Bookstore Management</h3>
           <p>Fullstack system with role-based dashboards, JWT auth, and real-time chat.</p>
         </div>
