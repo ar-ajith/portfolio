@@ -184,13 +184,16 @@ section h2 {
   font-size: 2.5rem;
   text-shadow: 0 0 10px #00fff7;
 }
-section p{
+
+section p {
   font-family: "Caveat", cursive;
   font-size: 25px;
   font-weight: bold;
 }
 
-/* Skills */
+/* =======================
+   Skills
+======================= */
 .skills ul,
 .skill-list {
   list-style: none;
@@ -220,8 +223,9 @@ section p{
   box-shadow: 0 0 20px #00fff7;
 }
 
-/* Projects */
-/* Projects Section */
+/* =======================
+   Projects Section
+======================= */
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -239,11 +243,8 @@ section p{
   font-size: 2.5rem;
   text-shadow: 0 0 10px #00fff7;
   position: relative;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 1px;
 }
-
-
 
 .project-card {
   width: 300px;
@@ -256,7 +257,6 @@ section p{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   cursor: pointer;
 }
 
@@ -291,16 +291,15 @@ section p{
   font-size: 1rem;
 }
 
-/* Footer */
-/* Footer */
+/* =======================
+   Footer
+======================= */
 footer {
   text-align: center;
   padding: 60px 20px;
-  /* background: linear-gradient(180deg, #0f0f0f, #050505); */
   color: #00fff7;
   font-size: 0.95rem;
   border-top: 1px solid #00fff7;
-  /* box-shadow: 0 -4px 25px rgba(0, 255, 247, 0.2); */
 }
 
 footer p {
@@ -351,43 +350,7 @@ footer p {
   font-size: 1.2rem;
 }
 
-/* =======================
-   Responsive
-======================= */
-@media (max-width: 1024px) {
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .profile-img {
-    width: 180px;
-    height: 180px;
-  }
-}
-
-@media (max-width: 768px) {
-  .project-card {
-    width: 90%;
-    height: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  section {
-    padding: 30px 20px;
-  }
-}
-
-
+/* Page Fade Animation */
 .page {
   opacity: 0;
   transform: translateY(20px);
@@ -398,5 +361,149 @@ footer p {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ======================================
+   Enhanced Responsive Breakpoints
+====================================== */
+
+/* 1200px (Large Tablets, Small Desktops) */
+@media (max-width: 1200px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  section {
+    padding: 40px 30px;
+  }
+}
+
+/* 1024px (Tablets) */
+@media (max-width: 1024px) {
+  .navbar {
+    gap: 15px;
+    padding: 12px 0;
+  }
+
+  .hero {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .profile-img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .project-card {
+    width: 45%;
+  }
+}
+
+/* 768px (Mobile - Large) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .navbar a {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-buttons a {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .projects {
+    flex-direction: column;
+  }
+
+  .project-card {
+    width: 90%;
+  }
+
+  section h2 {
+    font-size: 2rem;
+  }
+}
+
+/* 576px (Mobile - Medium) */
+@media (max-width: 576px) {
+  .profile-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons a {
+    width: 80%;
+    margin: 10px auto;
+    display: block;
+  }
+
+  .navbar a {
+    font-size: 0.85rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.1rem;
+  }
+
+  footer {
+    padding: 40px 10px;
+    font-size: 0.85rem;
+  }
+
+  .footer-btn {
+    padding: 8px 15px;
+    font-size: 0.85rem;
+  }
+}
+
+/* 400px (Small Phones) */
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .navbar a {
+    font-size: 0.8rem;
+  }
+
+  .project-card {
+    width: 100%;
   }
 }

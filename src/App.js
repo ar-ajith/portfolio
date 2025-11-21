@@ -102,12 +102,12 @@ function App() {
       {/* 🔹 Footer */}
       <footer>
   <p><b>© 2025 AJITH AR | Python Developer</b></p>
-  <p><b>📞 +91 9400383241 | ✉️ ar.ajithrajan@gmail.com | Thrissur, Kerala</b></p>
+  <p><b>📞 +91 9400383241 | 📧 ar.ajithrajan@gmail.com | 📍 Thrissur, Kerala</b></p>
   <div className="footer-links">
     <a
       href="https://www.linkedin.com/in/ajith-ar/"
       target="_blank"
-      rel="noreferrer"
+      rel="noreferrer"  
       className="footer-btn linkedin"
     >
       <i className="fab fa-linkedin"></i> LinkedIn
