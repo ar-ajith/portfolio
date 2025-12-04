@@ -1,14 +1,33 @@
-import { useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import Experience from "./pages/Experience";
-import Projects from "./pages/Projects";
-import Certificates from "./pages/Certificates";
-import Education from "./pages/Others";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import Loader from "./Loader";
+import AnimatedRoutes from "./AnimatedRoutes";
+import EntryScreen from "./EntryScreen";
 
 function App() {
+  const location = useLocation();
+  const [loading, setLoading] = useState(false);
+  const [entered, setEntered] = useState(false);
+
+  // ⭐ Show loader on route change
   useEffect(() => {
-    // 🔹 Custom Cursor
+    if (!entered) return; // prevent loader before entering site
+
+    setLoading(true);
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname, entered]);
+
+  // ⭐ Custom Cursor + Background Animation
+  useEffect(() => {
+    if (!entered) return; // don't load animations before entering
+
+    // Custom Cursor
     const cursor = document.createElement("div");
     cursor.classList.add("custom-cursor");
     document.body.appendChild(cursor);
@@ -25,12 +44,12 @@ function App() {
       el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
     });
 
-    // 🔹 Animated Background Canvas
+    // Background Canvas Animation
     const canvas = document.createElement("canvas");
     canvas.classList.add("background-canvas");
     document.body.appendChild(canvas);
-    const ctx = canvas.getContext("2d");
 
+    const ctx = canvas.getContext("2d");
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
@@ -77,11 +96,17 @@ function App() {
       canvas.remove();
       window.removeEventListener("resize", resize);
     };
-  }, []);
+  }, [entered]);
+
+  // ⭐ CONDITIONAL RETURN (valid because hooks are above)
+  if (!entered) {
+    return <EntryScreen onEnter={() => setEntered(true)} />;
+  }
 
   return (
     <div className="App">
-      {/* 🔹 Navigation */}
+
+      {/* Navigation */}
       <nav className="navbar">
         <Link to="/">Home</Link>
         <Link to="/experience">Experience</Link>
@@ -90,39 +115,39 @@ function App() {
         <Link to="/education">Others</Link>
       </nav>
 
-      {/* 🔹 Routes */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/certificates" element={<Certificates />} />
-        <Route path="/education" element={<Education />} />
-      </Routes>
+      {/* Loader */}
+      {loading && <Loader />}
 
-      {/* 🔹 Footer */}
+      {/* Page Transitions */}
+      <AnimatePresence mode="wait">
+        <AnimatedRoutes key={location.pathname} />
+      </AnimatePresence>
+
+      {/* Footer */}
       <footer>
-  <p><b>© 2025 AJITH AR | Python Developer</b></p>
-  <p><b>📞 +91 9400383241 | 📧 ar.ajithrajan@gmail.com | 📍 Thrissur, Kerala</b></p>
-  <div className="footer-links">
-    <a
-      href="https://www.linkedin.com/in/ajith-ar/"
-      target="_blank"
-      rel="noreferrer"  
-      className="footer-btn linkedin"
-    >
-      <i className="fab fa-linkedin"></i> LinkedIn
-    </a>
-    <a
-      href="https://github.com/ar-ajith"
-      target="_blank"
-      rel="noreferrer"
-      className="footer-btn github"
-    >
-      <i className="fab fa-github"></i> GitHub
-    </a>
-  </div>
-</footer>
+        <p><b>© 2025 AJITH AR | Python Developer</b></p>
+        <p><b>📞 +91 9400383241 | 📧 ar.ajithrajan@gmail.com | 📍 Thrissur, Kerala</b></p>
 
+        <div className="footer-links">
+          <a
+            href="https://www.linkedin.com/in/ajith-ar/"
+            target="_blank"
+            rel="noreferrer"
+            className="footer-btn linkedin"
+          >
+            <i className="fab fa-linkedin"></i> LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/ar-ajith"
+            target="_blank"
+            rel="noreferrer"
+            className="footer-btn github"
+          >
+            <i className="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }

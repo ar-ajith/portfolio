@@ -1,5 +1,6 @@
 import React from "react";
-import "./certificates.css"; // import the CSS
+import { motion } from "framer-motion";   // ⭐ Added
+import "./certificates.css";
 
 import pythonCert from "../assets/python-cert.jpg";
 import oracleData from "../assets/oracle-data.jpg";
@@ -17,8 +18,15 @@ function Certificates() {
   ];
 
   return (
-    <div className="certificates page">
+    <motion.div
+      className="certificates page"
+      initial={{ opacity: 0, y: 20 }}      // fade + slide animation
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2>Certificates</h2>
+
       <ul className="certificates-list">
         {certificates.map((cert, index) => (
           <li key={index}>
@@ -27,7 +35,7 @@ function Certificates() {
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }
 
