@@ -15,48 +15,64 @@
   animation: fadeIn 1s ease;
 }
 
-/* CONTENT BOX */
+/* CONTENT */
 .entry-content {
-  animation: slideUp 1s ease;
   padding: 20px;
+  animation: slideUpMain 1.2s ease forwards;
+  opacity: 0;
 }
 
-/* TITLE */
-.entry-title {
-  font-size: 4rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-shadow: 0 0 20px rgba(0, 255, 247, 0.8);
-  margin-bottom: 10px;
-}
-
-/* SUBTITLE */
-.entry-subtitle {
-  font-size: 1.3rem;
-  opacity: 0.8;
-  margin-bottom: 25px;
-}
-
-/* BUTTON */
-.entry-btn {
-  padding: 14px 35px;
-  font-size: 18px;
-  background: rgb(0, 255, 247);
-  border: none;
-  border-radius: 8px;
+/* POWER BUTTON */
+.power-btn-wrapper {
+  display: inline-block;
   cursor: pointer;
-  color: black;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 0 15px rgba(0, 255, 247, 0.6);
-  transition: 0.3s ease;
+  animation: pulse 2s infinite ease-in-out;
+  margin-bottom: 15px;
 }
 
-.entry-btn:hover {
-  transform: scale(1.05);
-  background: rgb(0, 200, 200);
-  box-shadow: 0 0 25px rgba(0, 255, 247, 1);
+.power-btn {
+  width: 110px;
+  height: 110px;
+  filter: drop-shadow(0 0 10px cyan);
+  transition: transform 0.2s ease;
+}
+
+.power-btn:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 25px cyan);
+}
+
+/* TOOLTIP */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 190px;
+  background-color: rgba(0, 255, 247, 0.2);
+  color: cyan;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  top: -40px;
+  transform: translateX(-50%);
+  font-size: 19px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 255, 247, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease, top 0.3s ease;
+  pointer-events: none;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  top: -55px;
 }
 
 /* ANIMATIONS */
@@ -65,7 +81,24 @@
   to { opacity: 1; }
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes slideUpMain {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px cyan);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 25px cyan);
+  }
 }

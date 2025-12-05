@@ -6,15 +6,21 @@ function EntryScreen({ onEnter }) {
     <div className="entry-screen">
       <div className="entry-content">
 
-        <h1 className="entry-title">Welcome</h1>
+        {/* Tooltip Wrapper */}
+        <div className="tooltip">
+          <div className="power-btn-wrapper" onClick={onEnter}>
+            <img
+              src="/power-btn.png"
+              alt="Power Button"
+              className="power-btn"
+            />
+          </div>
 
-        <p className="entry-subtitle">
-          Discover my work, experience, and projects
-        </p>
-
-        <button className="entry-btn" onClick={onEnter}>
-          Enter Portfolio
-        </button>
+          {/* Tooltip Text */}
+          <span className="tooltip-text">
+            Click here to power on
+          </span>
+        </div>
 
       </div>
     </div>
